@@ -72,6 +72,7 @@ public class TemperatureSeriesAnalysis {
     }
 
     public double findTempClosestToValue(double tempValue) {
+        final double EPSILON = 0.000001;
         this.checkEmpty();
         double dist = Math.abs(temperatureSeries[0] - tempValue);
         int idx = 0;
@@ -80,7 +81,7 @@ public class TemperatureSeriesAnalysis {
             if (newDist < dist) {
                 idx = i;
                 dist = newDist;
-            } else if (Math.abs(newDist - dist) < 0.00000001) {
+            } else if (Math.abs(newDist - dist) < EPSILON) {
                 if (temperatureSeries[i] > temperatureSeries[idx]) {
                     idx = i;
                 }
