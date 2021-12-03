@@ -24,7 +24,7 @@ public class TemperatureSeriesAnalysis {
     public double average() {
         this.checkEmpty();
         double sum = 0;
-        for (int i =0; i < this.numOfElements; i++){
+        for (int i =0; i < this.numOfElements; i++) {
             sum += this.temperatureSeries[i];
         }
         return sum/this.numOfElements;
@@ -34,7 +34,7 @@ public class TemperatureSeriesAnalysis {
         this.checkEmpty();
         double sum = 0;
         double average = this.average();
-        for (int i =0; i < this.numOfElements; i++) {
+        for (int i = 0; i < this.numOfElements; i++) {
             sum = Math.pow(this.temperatureSeries[i] - average, 2);
         }
         return Math.sqrt(sum/this.numOfElements);
@@ -43,8 +43,8 @@ public class TemperatureSeriesAnalysis {
     public double min() {
         this.checkEmpty();
         double minValue = temperatureSeries[0];
-        for (int i = 1; i < this.numOfElements; i++){
-            if(this.temperatureSeries[i] < minValue){
+        for (int i = 1; i < this.numOfElements; i++) {
+            if(this.temperatureSeries[i] < minValue) {
                 minValue = this.temperatureSeries[i];
             }
         }
@@ -54,8 +54,8 @@ public class TemperatureSeriesAnalysis {
     public double max() {
         this.checkEmpty();
         double maxValue = temperatureSeries[0];
-        for (int i = 1; i < this.numOfElements; i++){
-            if(this.temperatureSeries[i] > maxValue){
+        for (int i = 1; i < this.numOfElements; i++) {
+            if(this.temperatureSeries[i] > maxValue) {
                 maxValue = this.temperatureSeries[i];
             }
         }
