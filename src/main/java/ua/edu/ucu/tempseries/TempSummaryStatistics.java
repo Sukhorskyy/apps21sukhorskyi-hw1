@@ -5,10 +5,10 @@ import lombok.ToString;
 
 @Getter @ToString
 public final class TempSummaryStatistics {
-    final private double avgTemp;
-    final private double devTemp;
-    final private double minTemp;
-    final private double maxTemp;
+    private final double avgTemp;
+    private final double devTemp;
+    private final double minTemp;
+    private final double maxTemp;
 
     public TempSummaryStatistics(TemperatureSeriesAnalysis tempAnalysis) {
         this.avgTemp = tempAnalysis.average();
