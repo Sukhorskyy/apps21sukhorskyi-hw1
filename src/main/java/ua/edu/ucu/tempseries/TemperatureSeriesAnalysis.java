@@ -12,10 +12,11 @@ public class TemperatureSeriesAnalysis {
     }
 
     public TemperatureSeriesAnalysis(double[] temperatureSeries) {
-        final int illegal = -273;
+        final int ILLEGAL = -273;
         for (double value: temperatureSeries) {
-            if (value < illegal) {
-                throw  new InputMismatchException("Value lower " +
+            if (value < ILLEGAL) {
+                throw  new InputMismatchException("Value lower "
+                        +
                         "than -237 is found");
             }
         }
@@ -118,7 +119,8 @@ public class TemperatureSeriesAnalysis {
     }
 
     public int addTemps(double... temps) {
-        if (this.temperatureSeries.length <
+        if (this.temperatureSeries.length
+                <
                 this.temperatureSeries.length + temps.length) {
             double[] newArr = new double[this.temperatureSeries.length * 2];
             for (int i = 0; i < this.numOfElements; i++) {
@@ -127,7 +129,8 @@ public class TemperatureSeriesAnalysis {
             this.temperatureSeries = Arrays.copyOf(newArr, newArr.length);
         }
         int idx = 0;
-        for (int i = this.numOfElements; i <
+        for (int i = this.numOfElements; i
+                <
                 this.numOfElements + temps.length; i++) {
             this.temperatureSeries[i] = temps[idx];
             idx++;
