@@ -12,12 +12,15 @@ public class TemperatureSeriesAnalysis {
     }
 
     public TemperatureSeriesAnalysis(double[] temperatureSeries) {
+        final int illegal = -273;
         for (double value: temperatureSeries) {
-            if (value < -237) {
-                throw  new InputMismatchException("Value lower than -237 is found");
+            if (value < illegal) {
+                throw  new InputMismatchException("Value lower " +
+                        "than -237 is found");
             }
         }
-        this.temperatureSeries = Arrays.copyOf(temperatureSeries, temperatureSeries.length);
+        this.temperatureSeries = Arrays.copyOf(temperatureSeries,
+                temperatureSeries.length);
         this.numOfElements = temperatureSeries.length;
     }
 
@@ -35,7 +38,8 @@ public class TemperatureSeriesAnalysis {
         double sum = 0;
         double average = this.average();
         for (int i = 0; i < this.numOfElements; i++) {
-            sum = (this.temperatureSeries[i] - average)*(this.temperatureSeries[i] - average);
+            sum = (this.temperatureSeries[i] - average)
+                    *(this.temperatureSeries[i] - average);
         }
         return Math.sqrt(sum/this.numOfElements);
     }
@@ -114,7 +118,8 @@ public class TemperatureSeriesAnalysis {
     }
 
     public int addTemps(double... temps) {
-        if (this.temperatureSeries.length < this.temperatureSeries.length + temps.length) {
+        if (this.temperatureSeries.length <
+                this.temperatureSeries.length + temps.length) {
             double[] newArr = new double[this.temperatureSeries.length * 2];
             for (int i = 0; i < this.numOfElements; i++) {
                 newArr[i] = this.temperatureSeries[i];
@@ -122,7 +127,8 @@ public class TemperatureSeriesAnalysis {
             this.temperatureSeries = Arrays.copyOf(newArr, newArr.length);
         }
         int idx = 0;
-        for (int i = this.numOfElements; i < this.numOfElements + temps.length; i++) {
+        for (int i = this.numOfElements; i <
+                this.numOfElements + temps.length; i++) {
             this.temperatureSeries[i] = temps[idx];
             idx++;
         }
