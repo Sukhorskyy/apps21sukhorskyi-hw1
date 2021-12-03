@@ -80,7 +80,7 @@ public class TemperatureSeriesAnalysis {
             if (newDist < dist) {
                 idx = i;
                 dist = newDist;
-            } else if (newDist == dist) {
+            } else if (Math.abs(newDist - dist) < 0.00000001) {
                 if (temperatureSeries[i] > temperatureSeries[idx]) {
                     idx = i;
                 }
