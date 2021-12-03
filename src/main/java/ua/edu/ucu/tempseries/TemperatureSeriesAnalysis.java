@@ -24,7 +24,7 @@ public class TemperatureSeriesAnalysis {
     public double average() {
         this.checkEmpty();
         double sum = 0;
-        for (int i =0; i < this.numOfElements; i++) {
+        for (int i = 0; i < this.numOfElements; i++) {
             sum += this.temperatureSeries[i];
         }
         return sum/this.numOfElements;
@@ -35,7 +35,7 @@ public class TemperatureSeriesAnalysis {
         double sum = 0;
         double average = this.average();
         for (int i = 0; i < this.numOfElements; i++) {
-            sum = Math.pow(this.temperatureSeries[i] - average, 2);
+            sum = (this.temperatureSeries[i] - average)*(this.temperatureSeries[i] - average);
         }
         return Math.sqrt(sum/this.numOfElements);
     }
@@ -44,7 +44,7 @@ public class TemperatureSeriesAnalysis {
         this.checkEmpty();
         double minValue = temperatureSeries[0];
         for (int i = 1; i < this.numOfElements; i++) {
-            if(this.temperatureSeries[i] < minValue) {
+            if (this.temperatureSeries[i] < minValue) {
                 minValue = this.temperatureSeries[i];
             }
         }
@@ -55,7 +55,7 @@ public class TemperatureSeriesAnalysis {
         this.checkEmpty();
         double maxValue = temperatureSeries[0];
         for (int i = 1; i < this.numOfElements; i++) {
-            if(this.temperatureSeries[i] > maxValue) {
+            if (this.temperatureSeries[i] > maxValue) {
                 maxValue = this.temperatureSeries[i];
             }
         }
@@ -71,11 +71,11 @@ public class TemperatureSeriesAnalysis {
         double dist = Math.abs(temperatureSeries[0] - tempValue);
         int idx = 0;
         for (int i = 1; i < this.numOfElements; i++) {
-            double new_dist = Math.abs(temperatureSeries[i] - tempValue);
-            if (new_dist < dist) {
+            double newDist = Math.abs(temperatureSeries[i] - tempValue);
+            if (newDist < dist) {
                 idx = i;
-                dist = new_dist;
-            } else if (new_dist == dist) {
+                dist = newDist;
+            } else if (newDist == dist) {
                 if (temperatureSeries[i] > temperatureSeries[idx]) {
                     idx = i;
                 }
